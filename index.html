@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Signature Generator</title>
+    <style>
+        .signature-container {
+            font-family: Poppins, Arial, sans-serif;
+            line-height: 1.5;
+            color: #a6a6a6;
+            display: flex;
+            align-items: flex-start;
+            border: 1px solid #e0e0e0;
+            padding: 2px;
+            border-radius: 5px;
+            margin-left: 5px;
+        }
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-right: 10px;
+        }
+        .profile-pic {
+            border-radius: 50%;
+            width: 70px;
+        }
+        .school-logo {
+            width: 60px;
+            margin-top: 10px;
+        }
+        .school-locations {
+            font-size: 5px;
+            color: #0d56a2;
+            text-align: center;
+            margin-top: 3px;
+        }
+        .vertical-line {
+            width: 1.5px;
+            background-color: #a6a6a6;
+            height: 130px;
+            margin: 0 10px;
+        }
+        .signature-details {
+            display: flex;
+            flex-direction: column;
+        }
+        .name-linkedin {
+            display: flex;
+            align-items: center;
+        }
+        .name-linkedin .name {
+            font-weight: bold;
+            color: #a6a6a6;
+            font-size: 14px;
+            margin-right: 5px;
+            margin-Bottom: 1px;
+        }
+        .name-linkedin .vertical-line-small {
+            height: 15px;
+            width: 1.5px;
+            background-color: #999;
+            margin: 0 2px;
+        }
+        .linkedin-logo {
+            width: 15px;
+            height: 15px;
+        }
+        .designation {
+            color: #a6a6a6;
+            font-size: 12px;
+            margin-top: 0px;
+        }
+        .contact-info {
+            margin-top: 10px;
+            display: flex;
+            flex-direction: column;
+            font-size: 10px;
+        }
+        .contact-info div {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2px;
+        }
+        .contact-info img {
+            width: 16px;
+            vertical-align: middle;
+            margin-right: 5px;
+        }
+        .contact-info a {
+            color: #a6a6a6;
+            font-size: 10px;
+            margin-left: 5px;
+            text-decoration: none;
+        }
+        .social-icons {
+            margin-top: 3px;
+            display: flex;
+        }
+        .social-icons a {
+            margin-right: 10px;
+        }
+        .social-icons img {
+            width: 15px;
+        }
+        .copy-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Email Signature Generator</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" placeholder="Name"><br>
+    <label for="designation">Designation:</label>
+    <input type="text" id="designation" placeholder="Designation"><br>
+    <label for="phone">Phone:</label>
+    <input type="text" id="phone" placeholder="Phone"><br>
+    <label for="email">Email:</label>
+    <input type="email" id="email" placeholder="Email"><br>
+    <label for="linkedin">LinkedIn URL:</label>
+    <input type="url" id="linkedin" placeholder="LinkedIn URL"><br>
+    <label for="profilePic">Upload Profile Pic:</label>
+    <input type="file" id="profilePic" accept="image/*"><br>
+    <label for="campus">Campus:</label>
+    <select id="campus">
+        <option value="Core Office">Core Office</option>
+        <option value="Noida">Noida</option>
+        <option value="Gurgaon">Gurgaon</option>
+        <option value="Faridabad">Faridabad</option>
+        <option value="Delhi">Delhi</option>
+        <option value="Chennai">Chennai</option>
+    </select><br>
+    <button onclick="generateSignature()">Generate Signature</button>
+    <div id="signature-result"></div>
+    <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+    <button class="copy-button" onclick="copyToSignatureRescue()">Copy HTML to Signature Rescue</button>
+    <script src="script.js"></script>
+</body>
+</html>
