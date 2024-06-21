@@ -43,7 +43,7 @@ function generateSignature() {
                     <td style="vertical-align: top; padding-right: 10px;">
                         <img src="${profilePicUrl}" alt="Profile Picture" class="profile-pic" style="border-radius: 50%; width: 70px;">
                         <img src="${githubBaseUrl}school-logo.png?raw=true" alt="School Logo" class="school-logo" style="width: 60px; margin-top: 10px;">
-                        <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 3px;">
+                        <div class="school-locations" style="font-size: 12px; color: #0d56a2; text-align: center; margin-top: 3px;">
                             <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                             <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
                             <span style="font-weight: ${bolds.Faridabad};">Faridabad</span> | 
