@@ -25,7 +25,11 @@ async function uploadImage(file) {
                 });
 
                 if (response.ok) {
-                    resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
+                    // Wait for the action to complete and the image to be available
+                    // Implement a delay or polling mechanism here if needed
+                    setTimeout(() => {
+                        resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
+                    }, 10000); // 10 seconds delay
                 } else {
                     reject('Failed to trigger GitHub Action');
                 }
@@ -128,34 +132,4 @@ function generateSignature(profilePicUrl) {
                         <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram" style="width: 15px;"></a>
                         <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 10px;"><img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube" style="width: 15px;"></a>
                         <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 10px;"><img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px;"></a>
-                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter" style="width: 15px;"></a>
-                    </div>
-                </td>
-            </tr>
-        </table>
-    </div>
-    `;
-    document.getElementById('signature-result').innerHTML = signatureHtml;
-}
-
-function copyToClipboard() {
-    const signatureResult = document.getElementById('signature-result');
-    const range = document.createRange();
-    range.selectNode(signatureResult);
-    window.getSelection().removeAllRanges(); // clear current selection
-    window.getSelection().addRange(range); // to select text
-    document.execCommand('copy');
-    window.getSelection().removeAllRanges(); // to deselect
-    alert('Signature copied to clipboard. You can now paste it into your Gmail signature settings.');
-}
-
-function copyToSignatureRescue() {
-    const signatureHtml = document.getElementById('signature-result').innerHTML;
-    const tempTextarea = document.createElement('textarea');
-    tempTextarea.value = signatureHtml;
-    document.body.appendChild(tempTextarea);
-    tempTextarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(tempTextarea);
-    alert('HTML copied to clipboard for Signature Rescue.');
-}
+                       
