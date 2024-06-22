@@ -6,6 +6,7 @@ async function uploadImage(file) {
         reader.onload = async () => {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
+            const githubToken = document.getElementById('githubToken').value;
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
