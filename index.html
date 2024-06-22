@@ -73,7 +73,7 @@
     </style>
 </head>
 <body>
-    <h1>Email Signature Generator</h1>
+   <h1>Email Signature Generator</h1>
     <form id="signature-form" onsubmit="event.preventDefault(); uploadImageAndGenerateSignature();">
         <label for="name">Name:</label>
         <input type="text" id="name" placeholder="Name" required><br>
@@ -96,11 +96,12 @@
             <option value="Delhi">Delhi</option>
             <option value="Chennai">Chennai</option>
         </select><br>
-        <button type="submit" id="generate-button">Generate Signature</button>
+        <input type="hidden" id="githubToken" value=""> <!-- This will be set in JavaScript -->
+        <button type="submit">Generate Signature</button>
     </form>
     <div id="signature-result"></div>
-    <button class="copy-button" id="copy-button">Copy to Clipboard</button>
-    <button class="copy-button" id="download-button">Copy HTML to Signature Rescue</button>
+    <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
+    <button class="copy-button" onclick="copyHtmlToSignatureRescue()">Copy HTML to Signature Rescue</button>
     <script src="script.js"></script>
 </body>
 </html>
