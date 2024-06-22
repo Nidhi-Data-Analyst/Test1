@@ -1,32 +1,47 @@
 async function uploadImage(file) {
-    const cloudName = document.getElementById('cloudName').value;
-    const apiKey = document.getElementById('apiKey').value;
-    const timestamp = Math.floor(Date.now() / 1000);
-    const apiSecret = document.getElementById('apiSecret').value;
-    const signature = CryptoJS.SHA1(`timestamp=${timestamp}${apiSecret}`).toString();
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
 
-    const formData = new FormData();
-    formData.append('file', file);
-    formData.append('timestamp', timestamp);
-    formData.append('api_key', apiKey);
-    formData.append('signature', signature);
+    return new Promise((resolve, reject) => {
+        reader.onload = async () => {
+            const base64Image = reader.result.split(',')[1];
+            const filename = file.name;
+            const githubToken = document.getElementById('githubToken').value;
 
-    try {
-        const response = await fetch(`https://api.cloudinary.com/v1_1/${cloudName}/image/upload`, {
-            method: 'POST',
-            body: formData
-        });
+            console.log('Base64 image:', base64Image);  // Debugging line
+            console.log('Filename:', filename);  // Debugging line
+            console.log('GitHub Token:', githubToken);  // Debugging line
 
-        const data = await response.json();
+            try {
+                const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer ${githubToken}`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        event_type: 'upload-image',
+                        client_payload: {
+                            filename: filename,
+                            image: base64Image
+                        }
+                    })
+                });
 
-        if (data.secure_url) {
-            return data.secure_url;
-        } else {
-            throw new Error('Failed to upload image to Cloudinary');
-        }
-    } catch (error) {
-        throw new Error(`Failed to upload image: ${error.message}`);
-    }
+                const responseData = await response.json();
+                console.log('Response data:', responseData);  // Debugging line
+
+                if (response.ok) {
+                    resolve(`images/${filename}`);
+                } else {
+                    reject(`Failed to upload image: ${responseData.message}`);
+                }
+            } catch (error) {
+                reject(`Failed to upload image: ${error.message}`);
+            }
+        };
+    });
 }
 
 function uploadImageAndGenerateSignature() {
@@ -36,7 +51,7 @@ function uploadImageAndGenerateSignature() {
     uploadImage(file).then((profilePicUrl) => {
         generateSignature(profilePicUrl);
     }).catch(error => {
-        alert(error.message);
+        alert(error);
     });
 }
 
