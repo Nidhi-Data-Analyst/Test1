@@ -107,40 +107,38 @@ function generateSignature(profilePicUrl) {
                         <span style="font-weight: ${bolds.Chennai};">Chennai</span>
                     </div>
                 </td>
-                <td style="border-left: 1.5px solid #e0e0e0; padding-left: 10px;">
+                <td style="border-left: 1px solid #e0e0e0; padding-left: 10px;">
                     <div class="name-linkedin" style="display: flex; align-items: center; font-weight: bold; color: #a6a6a6; font-size: 14px; margin-bottom: 1px;">
-                        <span>${name}</span>
+                        ${name}
                         ${linkedinHtml}
                     </div>
-                    <div class="designation" style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">
-                        ${designation}
-                    </div>
+                    <div class="designation" style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
                     <div class="contact-info" style="margin-top: 10px; font-size: 10px;">
                         <div>
-                            <img src="${githubBaseUrl}phone-icon.png?raw=true" alt="Phone Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;">
+                            <img src="${githubBaseUrl}phone-icon.png?raw=true" alt="Phone" style="width: 16px; vertical-align: middle; margin-right: 5px;">
                             ${phone}
                         </div>
                         <div>
-                            <img src="${githubBaseUrl}email-icon.png?raw=true" alt="Email Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;">
+                            <img src="${githubBaseUrl}email-icon.png?raw=true" alt="Email" style="width: 16px; vertical-align: middle; margin-right: 5px;">
                             <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
                         </div>
-                        <div class="social-icons" style="margin-top: 5px;">
-                            <a href="https://www.instagram.com" target="_blank">
-                                <img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram">
-                            </a>
-                            <a href="https://www.facebook.com" target="_blank">
-                                <img src="${githubBaseUrl}facebook-icon.png?raw=true" alt="Facebook">
-                            </a>
-                            <a href="https://www.twitter.com" target="_blank">
-                                <img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter">
-                            </a>
-                            <a href="https://www.youtube.com" target="_blank">
-                                <img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube">
-                            </a>
-                            <a href="https://www.website.com" target="_blank">
-                                <img src="${githubBaseUrl}website-icon.png?raw=true" alt="Website">
-                            </a>
-                        </div>
+                    </div>
+                    <div class="social-icons" style="margin-top: 10px;">
+                        <a href="https://www.facebook.com/SchoolOfSuccessSNS/" target="_blank">
+                            <img src="${githubBaseUrl}facebook-icon.png?raw=true" alt="Facebook" style="width: 15px;">
+                        </a>
+                        <a href="https://www.instagram.com/schoolofsuccesssns/" target="_blank">
+                            <img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram" style="width: 15px;">
+                        </a>
+                        <a href="https://twitter.com/SOS_SNS" target="_blank">
+                            <img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter" style="width: 15px;">
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC1WwCVgOHxH1uF5NOX5ED7g" target="_blank">
+                            <img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube" style="width: 15px;">
+                        </a>
+                        <a href="https://schoolofsuccesssns.com/" target="_blank">
+                            <img src="${githubBaseUrl}website-icon.png?raw=true" alt="Website" style="width: 15px;">
+                        </a>
                     </div>
                 </td>
             </tr>
@@ -153,8 +151,8 @@ function generateSignature(profilePicUrl) {
 
 function copyToClipboard() {
     const signatureResult = document.getElementById('signature-result');
-    if (!signatureResult) {
-        alert('No signature to copy.');
+    if (signatureResult.innerHTML.trim() === '') {
+        alert('Please generate a signature first.');
         return;
     }
 
@@ -162,34 +160,23 @@ function copyToClipboard() {
     range.selectNode(signatureResult);
     window.getSelection().removeAllRanges();
     window.getSelection().addRange(range);
-
-    try {
-        document.execCommand('copy');
-        alert('Signature copied to clipboard.');
-    } catch (err) {
-        alert('Failed to copy signature.');
-    }
-
+    document.execCommand('copy');
     window.getSelection().removeAllRanges();
+    alert('Signature copied to clipboard.');
 }
 
 function copyHtmlToSignatureRescue() {
     const signatureResult = document.getElementById('signature-result');
-    if (!signatureResult) {
-        alert('No signature to copy.');
+    if (signatureResult.innerHTML.trim() === '') {
+        alert('Please generate a signature first.');
         return;
     }
 
-    const html = signatureResult.innerHTML;
-    const blob = new Blob([html], { type: 'text/html' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'signature.html';
-    a.click();
-    URL.revokeObjectURL(url);
+    const tempElement = document.createElement('textarea');
+    tempElement.value = signatureResult.innerHTML;
+    document.body.appendChild(tempElement);
+    tempElement.select();
+    document.execCommand('copy');
+    document.body.removeChild(tempElement);
+    alert('HTML copied to Signature Rescue.');
 }
-
-document.getElementById('generate-button').addEventListener('click', uploadImageAndGenerateSignature);
-document.getElementById('copy-button').addEventListener('click', copyToClipboard);
-document.getElementById('download-button').addEventListener('click', copyHtmlToSignatureRescue);
