@@ -28,11 +28,16 @@ async function uploadImage(file) {
                 if (response.ok) {
                     resolve(`images/${filename}`);
                 } else {
-                    reject(`Failed to upload image: ${response.statusText}`);
+                    const errorMessage = await response.text();
+                    reject(`Failed to upload image: ${response.statusText} - ${errorMessage}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
             }
+        };
+
+        reader.onerror = () => {
+            reject(`Failed to read the file: ${reader.error}`);
         };
     });
 }
