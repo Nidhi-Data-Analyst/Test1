@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Signature Generator</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.0.0/crypto-js.min.js"></script>
     <style>
         .signature-container {
             font-family: Poppins, Arial, sans-serif;
@@ -95,13 +96,18 @@
             <option value="Faridabad">Faridabad</option>
             <option value="Delhi">Delhi</option>
             <option value="Chennai">Chennai</option>
-        </select><br>
-        <input type="hidden" id="githubToken" value="MY_PERSONAL_TOKEN">
-        <button type="submit">Generate Signature</button>
+        </select>
+        <br>
+        <button type="button" id="generate-button">Generate Signature</button>
+        <button type="button" id="copy-button">Copy to Clipboard</button>
+        <button type="button" id="download-button">Copy HTML to Signature Rescue</button>
     </form>
     <div id="signature-result"></div>
-    <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
-    <button class="copy-button" onclick="copyHtmlToSignatureRescue()">Copy HTML to Signature Rescue</button>
+
+    <input type="hidden" id="cloudName" value="Signature_Image">
+    <input type="hidden" id="apiKey" value="554982712684484">
+    <input type="hidden" id="apiSecret" value="0J2RNOoIu3R6eP-pPVG97wgcWNQ">
+
     <script src="script.js"></script>
 </body>
 </html>
