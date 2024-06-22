@@ -8,9 +8,9 @@ async function uploadImage(file) {
             const filename = file.name;
             const githubToken = document.getElementById('githubToken').value;
 
-            console.log('Base64 image:', base64Image);  // Debugging line
-            console.log('Filename:', filename);  // Debugging line
-            console.log('GitHub Token:', githubToken);  // Debugging line
+            console.log('Base64 image:', base64Image); // Debugging line
+            console.log('Filename:', filename);       // Debugging line
+            console.log('GitHub Token:', githubToken); // Debugging line
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
@@ -29,13 +29,11 @@ async function uploadImage(file) {
                     })
                 });
 
-                const responseData = await response.json();
-                console.log('Response data:', responseData);  // Debugging line
-
                 if (response.ok) {
                     resolve(`images/${filename}`);
                 } else {
-                    reject(`Failed to upload image: ${responseData.message}`);
+                    const errorResponse = await response.json();
+                    reject(`Failed to upload image: ${errorResponse.message}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
@@ -54,7 +52,6 @@ function uploadImageAndGenerateSignature() {
         alert(error);
     });
 }
-
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
     const designation = document.getElementById('designation').value;
