@@ -13,22 +13,21 @@ on:
 jobs:
   upload_image:
     runs-on: ubuntu-latest
-
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-    - name: Decode and save image
-      run: |
-        mkdir -p images
-        echo "${{ github.event.inputs.image }}" | base64 -d > images/${{ github.event.inputs.filename }}
+      - name: Decode and save image
+        run: |
+          mkdir -p images
+          echo "${{ github.event.inputs.image }}" | base64 -d > images/${{ github.event.inputs.filename }}
 
-    - name: Commit and push image
-      run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-        git add images/${{ github.event.inputs.filename }}
-        git commit -m "Add uploaded image"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Commit and push image
+        env:
+          MY_TOKEN: ${{ secrets.MY_TOKEN }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add images/${{ github.event.inputs.filename }}
+          git commit -m "Add image ${{ github.event.inputs.filename }}"
+          git push
