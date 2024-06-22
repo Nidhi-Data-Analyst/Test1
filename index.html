@@ -85,7 +85,7 @@
     <label for="linkedin">LinkedIn URL:</label>
     <input type="url" id="linkedin" placeholder="LinkedIn URL"><br>
     <label for="profilePic">Upload Profile Pic:</label>
-    <input type="file" id="profilePic" accept="image/*"><br> <!-- Enable profile picture upload -->    
+    <input type="file" id="profilePic" accept="image/*"><br> <!-- Enable profile picture upload -->
     <label for="campus">Campus:</label>
     <select id="campus">
         <option value="Core Office">Core Office</option>
@@ -95,7 +95,7 @@
         <option value="Delhi">Delhi</option>
         <option value="Chennai">Chennai</option>
     </select><br>
-    <button onclick="generateSignature()">Generate Signature</button>
+    <button onclick="uploadImageAndGenerateSignature()">Generate Signature</button>
     <div id="signature-result"></div>
     <button class="copy-button" onclick="copyToClipboard()">Copy to Clipboard</button>
     <button class="copy-button" onclick="copyToSignatureRescue()">Copy HTML to Signature Rescue</button>
