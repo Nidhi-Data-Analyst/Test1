@@ -1,37 +1,17 @@
 name: Image Upload
 
 on:
-  workflow_dispatch:
-    inputs:
-      image:
-        description: 'Base64 encoded image'
-        required: true
-        type: string
-      filename:
-        description: 'Filename for the uploaded image'
-        required: true
-        type: string
+  repository_dispatch:
+    types: [image-upload]
 
 jobs:
   upload:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
+    - name: Checkout repository content
       uses: actions/checkout@v2
 
-    - name: Create images directory if not exists
-      run: mkdir -p images
-
-    - name: Decode and save image
-      run: echo "${{ github.event.inputs.image }}" | base64 -d > images/${{ github.event.inputs.filename }}
-
-    - name: Commit and push image
+    - name: Create image file
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-        git add images/${{ github.event.inputs.filename }}
-        git commit -m "Add new image ${{ github.event.inputs.filename }}"
-        git push
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+        echo "${{ github.event.client_payload.content }}" | base64 -d > "images/${{ github.event.client_payload.filename }}"
