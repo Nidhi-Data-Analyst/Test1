@@ -1,43 +1,43 @@
 async function uploadImage(file) {
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
+    const formData = new FormData();
+    formData.append('profilePic', file);
 
-    return new Promise((resolve, reject) => {
-        reader.onload = async () => {
-            const base64Image = reader.result.split(',')[1];
-            const filename = file.name;
-
-            try {
-                const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
-                    method: 'POST',
-                    headers: {
-                        'Authorization': `Bearer ${YOUR_GITHUB_TOKEN}`,  // Replace YOUR_GITHUB_TOKEN with the actual token
-                        'Accept': 'application/vnd.github.v3+json',
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        ref: 'main',
-                        inputs: {
-                            image: base64Image,
-                            filename: filename
-                        }
-                    })
-                });
-
-                if (response.ok) {
-                    // Wait for the action to complete and the image to be available
-                    setTimeout(() => {
-                        resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
-                    }, 10000); // 10 seconds delay
-                } else {
-                    reject('Failed to trigger GitHub Action');
+    try {
+        const response = await fetch('https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches', {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${MY_GITHUB_TOKEN}`,  // Replace YOUR_GITHUB_TOKEN with the actual token
+                'Accept': 'application/vnd.github.v3+json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                ref: 'main',
+                inputs: {
+                    image: await toBase64(file),
+                    filename: file.name
                 }
-            } catch (error) {
-                reject('Failed to upload image');
-            }
-        };
+            })
+        });
 
-        reader.onerror = (error) => reject(error);
+        if (response.ok) {
+            // Wait for the action to complete and the image to be available
+            setTimeout(() => {
+                resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${file.name}`);
+            }, 10000); // 10 seconds delay
+        } else {
+            throw new Error('Failed to trigger GitHub Action');
+        }
+    } catch (error) {
+        throw new Error('Failed to upload image');
+    }
+}
+
+function toBase64(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.readAsDataURL(file);
+        reader.onload = () => resolve(reader.result.split(',')[1]);
+        reader.onerror = error => reject(error);
     });
 }
 
