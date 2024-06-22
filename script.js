@@ -43,6 +43,17 @@ async function uploadImage(file) {
         };
     });
 }
+
+function uploadImageAndGenerateSignature() {
+    const fileInput = document.getElementById('profilePic');
+    const file = fileInput.files[0];
+
+    uploadImage(file).then((profilePicUrl) => {
+        generateSignature(profilePicUrl);
+    }).catch(error => {
+        alert(error);
+    });
+}
 function uploadImageAndGenerateSignature() {
     const fileInput = document.getElementById('profilePic');
     const file = fileInput.files[0];
