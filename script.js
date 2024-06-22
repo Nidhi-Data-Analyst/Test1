@@ -40,12 +40,13 @@ function uploadImageAndGenerateSignature() {
     const fileInput = document.getElementById('profilePic');
     const file = fileInput.files[0];
 
-    uploadImage(file).then(() => {
-        generateSignature();
+    uploadImage(file).then((imagePath) => {
+        generateSignature(imagePath);
     }).catch(error => {
         alert(error);
     });
 }
+
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
     const designation = document.getElementById('designation').value;
