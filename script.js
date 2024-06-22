@@ -6,7 +6,7 @@ async function uploadImage(file) {
         reader.onload = async () => {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
-            const githubToken = 'MY_PERSONAL_TOKEN';
+            const githubToken = document.getElementById('githubToken').value;
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
@@ -25,20 +25,15 @@ async function uploadImage(file) {
                     })
                 });
 
-                const responseText = await response.text(); // Capture the raw response text
-
                 if (response.ok) {
                     resolve(`images/${filename}`);
                 } else {
-                    reject(`Failed to upload image: ${response.statusText} - ${responseText}`);
+                    const errorData = await response.json();
+                    reject(`Failed to upload image: ${errorData.message}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
             }
-        };
-
-        reader.onerror = () => {
-            reject('Failed to read file.');
         };
     });
 }
@@ -53,7 +48,6 @@ function uploadImageAndGenerateSignature() {
         alert(error);
     });
 }
-
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
     const designation = document.getElementById('designation').value;
