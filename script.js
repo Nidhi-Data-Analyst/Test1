@@ -8,13 +8,10 @@ async function uploadImage(file) {
             const filename = file.name;
 
             try {
-                // Securely retrieve the token from your backend or environment
-                const token = 'MY_TOKEN'; // Replace with the secure method of fetching the token
-
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${token}`,
+                        'Authorization': `Bearer ${GITHUB_TOKEN}`,  // This will be handled by the workflow
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
