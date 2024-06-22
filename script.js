@@ -7,12 +7,12 @@ async function uploadImage(file) {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
             const githubToken = document.getElementById('githubToken').value;
+            const apiUrl = `https://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@github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`;
 
             try {
-                const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
+                const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${githubToken}`,
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
@@ -25,11 +25,12 @@ async function uploadImage(file) {
                     })
                 });
 
+                const responseText = await response.text(); // Capture the raw response text
+
                 if (response.ok) {
                     resolve(`images/${filename}`);
                 } else {
-                    const errorData = await response.json();
-                    reject(`Failed to upload image: ${response.statusText} - ${errorData.message}`);
+                    reject(`Failed to upload image: ${response.statusText} - ${responseText}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
