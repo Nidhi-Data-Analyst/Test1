@@ -8,55 +8,45 @@ async function uploadImage(file) {
             const filename = file.name;
 
             try {
-                const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
+                const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${MY_GITHUB_TOKEN}`, // Ensure this is the correct environment variable name
+                        'Authorization': `Bearer ${process.env.MY_PERSONAL_TOKEN}`, // Use the repository secret here
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        ref: 'main',
-                        inputs: {
-                            image: base64Image,
-                            filename: filename
+                        event_type: 'image-upload',
+                        client_payload: {
+                            filename: filename,
+                            content: base64Image
                         }
                     })
                 });
 
                 if (response.ok) {
-                    // Wait for the action to complete and the image to be available
-                    setTimeout(() => {
-                        resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
-                    }, 10000); // 10 seconds delay
+                    const data = await response.json();
+                    resolve(data);
                 } else {
-                    reject('Failed to trigger GitHub Action');
+                    reject(`Failed to upload image: ${response.statusText}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
             }
         };
-
-        reader.onerror = (error) => reject(`Failed to read file: ${error.message}`);
     });
 }
 
-async function uploadImageAndGenerateSignature() {
-    const profilePic = document.getElementById('profilePic').files[0];
-    if (!profilePic) {
-        alert('Please upload a profile picture.');
-        return;
-    }
+function uploadImageAndGenerateSignature() {
+    const fileInput = document.getElementById('profilePic');
+    const file = fileInput.files[0];
 
-    try {
-        const profilePicUrl = await uploadImage(profilePic);
-        generateSignature(profilePicUrl);
-    } catch (error) {
-        console.error('Error uploading image:', error);
-        alert(`Failed to upload image: ${error}`);
-    }
+    uploadImage(file).then(() => {
+        generateSignature();
+    }).catch(error => {
+        alert(error);
+    });
 }
-
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
     const designation = document.getElementById('designation').value;
