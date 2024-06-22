@@ -24,16 +24,20 @@ async function uploadImage(file) {
                     })
                 });
 
+                const responseData = await response.json();
+
                 if (response.ok) {
                     // Wait for the action to complete and the image to be available
                     setTimeout(() => {
                         resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
                     }, 10000); // 10 seconds delay
                 } else {
-                    reject('Failed to trigger GitHub Action');
+                    console.error('Failed to trigger GitHub Action', responseData);
+                    reject(`Failed to trigger GitHub Action: ${responseData.message}`);
                 }
             } catch (error) {
-                reject('Failed to upload image');
+                console.error('Failed to upload image', error);
+                reject(`Failed to upload image: ${error.message}`);
             }
         };
 
@@ -53,7 +57,7 @@ async function uploadImageAndGenerateSignature() {
         generateSignature(profilePicUrl);
     } catch (error) {
         console.error('Error uploading image:', error);
-        alert('Failed to upload image.');
+        alert(`Failed to upload image: ${error}`);
     }
 }
 
