@@ -6,28 +6,30 @@ on:
       image:
         description: 'Base64 encoded image'
         required: true
+        type: string
       filename:
         description: 'Image filename'
         required: true
+        type: string
 
 jobs:
-  upload_image:
+  upload:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Decode and save image
+      - name: Create image file
         run: |
-          mkdir -p images
-          echo "${{ github.event.inputs.image }}" | base64 -d > images/${{ github.event.inputs.filename }}
-
+          echo "${{ github.event.inputs.image }}" | base64 -d > ./images/${{ github.event.inputs.filename }}
+          
       - name: Commit and push image
-        env:
-          GITHUB_TOKEN: ${{ secrets.MY_PERSONAL_TOKEN }}
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add images/${{ github.event.inputs.filename }}
+          git add ./images/${{ github.event.inputs.filename }}
           git commit -m "Add image ${{ github.event.inputs.filename }}"
           git push
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+
