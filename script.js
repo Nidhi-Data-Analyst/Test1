@@ -6,7 +6,7 @@ async function uploadImage(file) {
         reader.onload = async () => {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
-            const githubToken = document.getElementById('githubToken').value;
+            const githubToken = 'ghp_bsm6JaMRq4xCdLBmltzki0n1Fyfkf2149Puwa'; // Use your newly created token here
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
@@ -28,16 +28,11 @@ async function uploadImage(file) {
                 if (response.ok) {
                     resolve(`images/${filename}`);
                 } else {
-                    const errorMessage = await response.text();
-                    reject(`Failed to upload image: ${response.statusText} - ${errorMessage}`);
+                    reject(`Failed to upload image: ${response.statusText}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
             }
-        };
-
-        reader.onerror = () => {
-            reject(`Failed to read the file: ${reader.error}`);
         };
     });
 }
