@@ -6,12 +6,13 @@ async function uploadImage(file) {
         reader.onload = async () => {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
+            const githubToken = document.getElementById('githubToken').value;
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${document.getElementById('githubToken').value}`,
+                        'Authorization': `Bearer ${githubToken}`,
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
@@ -40,8 +41,8 @@ function uploadImageAndGenerateSignature() {
     const fileInput = document.getElementById('profilePic');
     const file = fileInput.files[0];
 
-    uploadImage(file).then((imagePath) => {
-        generateSignature(imagePath);
+    uploadImage(file).then((profilePicUrl) => {
+        generateSignature(profilePicUrl);
     }).catch(error => {
         alert(error);
     });
