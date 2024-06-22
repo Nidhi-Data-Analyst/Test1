@@ -54,16 +54,7 @@ function uploadImageAndGenerateSignature() {
         alert(error);
     });
 }
-function uploadImageAndGenerateSignature() {
-    const fileInput = document.getElementById('profilePic');
-    const file = fileInput.files[0];
 
-    uploadImage(file).then((profilePicUrl) => {
-        generateSignature(profilePicUrl);
-    }).catch(error => {
-        alert(error);
-    });
-}
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
     const designation = document.getElementById('designation').value;
