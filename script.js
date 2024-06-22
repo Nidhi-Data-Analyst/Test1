@@ -11,7 +11,7 @@ async function uploadImage(file) {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${GITHUB_TOKEN}`,  // This will be handled by the workflow
+                        'Authorization': `Bearer ${MY_PERSONAL_TOKEN}`,  // This will be handled by the workflow
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
@@ -30,14 +30,15 @@ async function uploadImage(file) {
                         resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
                     }, 10000); // 10 seconds delay
                 } else {
-                    reject(`Failed to trigger GitHub Action: ${errorMessage}`);
+                    const errorMessage = await response.json();
+                    reject(`Failed to trigger GitHub Action: ${errorMessage.message}`);
                 }
             } catch (error) {
                 reject(`Failed to upload image: ${error.message}`);
             }
         };
 
-        reader.onerror = (error) => reject(error);
+        reader.onerror = (error) => reject(`Failed to read file: ${error.message}`);
     });
 }
 
@@ -53,7 +54,7 @@ async function uploadImageAndGenerateSignature() {
         generateSignature(profilePicUrl);
     } catch (error) {
         console.error('Error uploading image:', error);
-        alert(`Failed to upload image: ${error}`);
+        alert(error);
     }
 }
 
