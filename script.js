@@ -11,7 +11,7 @@ async function uploadImage(file) {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${process.env.MY_PERSONAL_TOKEN}`,
+                        'Authorization': `Bearer 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`,  // Use the actual token here
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
