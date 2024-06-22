@@ -8,7 +8,7 @@ async function uploadImage(file) {
             const filename = file.name;
 
             try {
-                const response = await fetch(`https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY/actions/workflows/image-upload.yml/dispatches`, {
+                const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer YOUR_GITHUB_TOKEN`,
@@ -25,7 +25,7 @@ async function uploadImage(file) {
                 });
 
                 if (response.ok) {
-                    resolve(`https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY/raw/main/images/${filename}`);
+                    resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
                 } else {
                     reject('Failed to trigger GitHub Action');
                 }
@@ -67,7 +67,7 @@ function generateSignature(profilePicUrl) {
         return;
     }
 
-    const githubBaseUrl = 'https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY/blob/main/';
+    const githubBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Test1/blob/main/';
 
     const bolds = {
         "Noida": "normal",
