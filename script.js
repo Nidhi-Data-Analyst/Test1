@@ -30,10 +30,10 @@ async function uploadImage(file) {
                         resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
                     }, 10000); // 10 seconds delay
                 } else {
-                    reject('Failed to trigger GitHub Action');
+                    reject(`Failed to trigger GitHub Action: ${errorMessage}`);
                 }
             } catch (error) {
-                reject('Failed to upload image');
+                reject(`Failed to upload image: ${error.message}`);
             }
         };
 
@@ -53,7 +53,7 @@ async function uploadImageAndGenerateSignature() {
         generateSignature(profilePicUrl);
     } catch (error) {
         console.error('Error uploading image:', error);
-        alert('Failed to upload image.');
+        alert(`Failed to upload image: ${error}`);
     }
 }
 
