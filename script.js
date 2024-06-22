@@ -11,7 +11,7 @@ async function uploadImage(file) {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${MY_PERSONAL_TOKEN}`,  // This will be handled by the workflow
+                        'Authorization': `Bearer ${process.env.MY_PERSONAL_TOKEN}`,  // This will be handled by the workflow
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
