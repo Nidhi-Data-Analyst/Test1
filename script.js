@@ -11,7 +11,7 @@ async function uploadImage(file) {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer YOUR_GITHUB_TOKEN`,
+                        'Authorization': `Bearer YOUR_GITHUB_TOKEN`,  // Replace YOUR_GITHUB_TOKEN with the actual token or a placeholder
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
@@ -26,7 +26,6 @@ async function uploadImage(file) {
 
                 if (response.ok) {
                     // Wait for the action to complete and the image to be available
-                    // Implement a delay or polling mechanism here if needed
                     setTimeout(() => {
                         resolve(`https://github.com/Nidhi-Data-Analyst/Test1/raw/main/images/${filename}`);
                     }, 10000); // 10 seconds delay
@@ -132,4 +131,33 @@ function generateSignature(profilePicUrl) {
                         <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram" style="width: 15px;"></a>
                         <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 10px;"><img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube" style="width: 15px;"></a>
                         <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 10px;"><img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px;"></a>
-                       
+                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter" style="width: 15px;"></a>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div>
+    `;
+    document.getElementById('signature-result').innerHTML = signatureHtml;
+}
+
+function copyToClipboard() {
+    const signatureResult = document.getElementById('signature-result');
+    const range = document.createRange();
+    range.selectNode(signatureResult);
+    window.getSelection().removeAllRanges(); 
+    window.getSelection().addRange(range); 
+    document.execCommand('copy');
+    window.getSelection().removeAllRanges(); 
+    alert('Signature copied to clipboard!');
+}
+
+function copyHtmlToSignatureRescue() {
+    const signatureHtml = document.getElementById('signature-result').innerHTML;
+    const blob = new Blob([signatureHtml], { type: 'text/html' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'signature.html';
+    a.click();
+}
