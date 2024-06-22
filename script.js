@@ -1,3 +1,4 @@
+
 async function uploadImage(file) {
     const reader = new FileReader();
     reader.readAsDataURL(file);
