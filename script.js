@@ -1,3 +1,43 @@
+async function uploadImage(file) {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    
+    return new Promise((resolve, reject) => {
+        reader.onload = async () => {
+            const base64Image = reader.result.split(',')[1];
+            const filename = file.name;
+
+            try {
+                const response = await fetch(`https://api.github.com/repos/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY/actions/workflows/image-upload.yml/dispatches`, {
+                    method: 'POST',
+                    headers: {
+                        'Authorization': `Bearer YOUR_GITHUB_TOKEN`,
+                        'Accept': 'application/vnd.github.v3+json',
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ref: 'main',
+                        inputs: {
+                            image: base64Image,
+                            filename: filename
+                        }
+                    })
+                });
+
+                if (response.ok) {
+                    resolve(`https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY/raw/main/images/${filename}`);
+                } else {
+                    reject('Failed to trigger GitHub Action');
+                }
+            } catch (error) {
+                reject('Failed to upload image');
+            }
+        };
+
+        reader.onerror = (error) => reject(error);
+    });
+}
+
 async function uploadImageAndGenerateSignature() {
     const profilePic = document.getElementById('profilePic').files[0];
     if (!profilePic) {
@@ -14,23 +54,6 @@ async function uploadImageAndGenerateSignature() {
     }
 }
 
-async function uploadImage(file) {
-    const formData = new FormData();
-    formData.append('image', file);
-
-    const response = await fetch('https://api.your-image-upload-service.com/upload', {
-        method: 'POST',
-        body: formData
-    });
-
-    if (!response.ok) {
-        throw new Error('Failed to upload image');
-    }
-
-    const data = await response.json();
-    return data.url;
-}
-
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
     const designation = document.getElementById('designation').value;
@@ -44,7 +67,7 @@ function generateSignature(profilePicUrl) {
         return;
     }
 
-    const githubBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Email-Signature/blob/main/';
+    const githubBaseUrl = 'https://github.com/YOUR_GITHUB_USERNAME/YOUR_REPOSITORY/blob/main/';
 
     const bolds = {
         "Noida": "normal",
