@@ -11,22 +11,21 @@ async function uploadImage(file) {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${process.env.MY_PERSONAL_TOKEN}`, // Use the repository secret here
+                        'Authorization': `Bearer ${document.getElementById('githubToken').value}`,
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
                     body: JSON.stringify({
-                        event_type: 'image-upload',
+                        event_type: 'upload-image',
                         client_payload: {
                             filename: filename,
-                            content: base64Image
+                            image: base64Image
                         }
                     })
                 });
 
                 if (response.ok) {
-                    const data = await response.json();
-                    resolve(data);
+                    resolve(`images/${filename}`);
                 } else {
                     reject(`Failed to upload image: ${response.statusText}`);
                 }
