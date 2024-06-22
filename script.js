@@ -11,7 +11,7 @@ async function uploadImage(file) {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/actions/workflows/image-upload.yml/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${process.env.MY_PERSONAL_TOKEN}`,  // This will be handled by the workflow
+                        'Authorization': `Bearer ${process.env.MY_PERSONAL_TOKEN}`,  // Use the environment variable
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
@@ -33,11 +33,11 @@ async function uploadImage(file) {
                     reject('Failed to trigger GitHub Action');
                 }
             } catch (error) {
-                reject('Failed to upload image');
+                reject(`Failed to upload image: ${error.message}`);
             }
         };
 
-        reader.onerror = (error) => reject(error);
+        reader.onerror = (error) => reject(`Failed to read file: ${error.message}`);
     });
 }
 
@@ -53,10 +53,9 @@ async function uploadImageAndGenerateSignature() {
         generateSignature(profilePicUrl);
     } catch (error) {
         console.error('Error uploading image:', error);
-        alert('Failed to upload image.');
+        alert(`Failed to upload image: ${error}`);
     }
 }
-
 
 function generateSignature(profilePicUrl) {
     const name = document.getElementById('name').value;
@@ -161,4 +160,9 @@ function copyHtmlToSignatureRescue() {
     a.href = url;
     a.download = 'signature.html';
     a.click();
+    URL.revokeObjectURL(url);
 }
+
+document.getElementById('generate-button').addEventListener('click', uploadImageAndGenerateSignature);
+document.getElementById('copy-button').addEventListener('click', copyToClipboard);
+document.getElementById('download-button').addEventListener('click', copyHtmlToSignatureRescue);
