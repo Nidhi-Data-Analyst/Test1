@@ -17,7 +17,7 @@ jobs:
 
       - name: Upload image
         run: |
-          echo "${{ github.event.client_payload.image }}" | base64 -d > "images/${{ github.event.client_payload.filename }}"
+          echo "https://github.com/Nidhi-Data-Analyst/Test1/tree/main/images/" 
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git add images/${{ github.event.client_payload.filename }}
