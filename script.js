@@ -6,7 +6,7 @@ async function uploadImage(file) {
         reader.onload = async () => {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
-            const githubToken = process.env.APP_TOKEN;  // Use process.env.APP_TOKEN for the GitHub token
+            const githubToken = document.getElementById('githubToken').value;  // Access the token from the hidden input
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
@@ -37,6 +37,7 @@ async function uploadImage(file) {
         };
     });
 }
+
 function uploadImageAndGenerateSignature() {
     const fileInput = document.getElementById('profilePic');
     const file = fileInput.files[0];
