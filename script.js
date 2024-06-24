@@ -6,18 +6,17 @@ async function uploadImage(file) {
         reader.onload = async () => {
             const base64Image = reader.result.split(',')[1];
             const filename = file.name;
-            // Remove this line
-            // const githubToken = document.getElementById('githubToken').value;
+            const githubToken = document.getElementById('githubToken').value;
 
             console.log('Base64 image:', base64Image);  // Debugging line
             console.log('Filename:', filename);  // Debugging line
-            // console.log('GitHub Token:', githubToken);  // Debugging line
+            console.log('GitHub Token:', githubToken);  // Debugging line
 
             try {
                 const response = await fetch(`https://api.github.com/repos/Nidhi-Data-Analyst/Test1/dispatches`, {
                     method: 'POST',
                     headers: {
-                        'Authorization': `Bearer ${githubToken}`, // Use the token from GitHub Secrets in the workflow
+                        'Authorization': `Bearer ${githubToken}`,
                         'Accept': 'application/vnd.github.v3+json',
                         'Content-Type': 'application/json'
                     },
