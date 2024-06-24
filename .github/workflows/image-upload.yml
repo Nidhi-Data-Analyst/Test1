@@ -16,10 +16,12 @@ jobs:
         run: mkdir -p images
 
       - name: Upload image
+        env:
+          GITHUB_APP_TOKEN: ${{ secrets.APP_TOKEN }}
         run: |
-          echo "https://github.com/Nidhi-Data-Analyst/Test1/tree/main/images/" 
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          echo "${{ github.event.client_payload.image }}" | base64 -d > images/${{ github.event.client_payload.filename }}
           git add images/${{ github.event.client_payload.filename }}
           git commit -m "Add image ${{ github.event.client_payload.filename }}"
           git push
