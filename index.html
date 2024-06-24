@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Signature Generator</title>
     <style>
-        .signature-container {
+  .signature-container {
             font-family: Poppins, Arial, sans-serif;
             line-height: 1.5;
             color: #a6a6a6;
@@ -17,38 +17,29 @@
         }
         .profile-pic {
             border-radius: 50%;
-            width: 70px;
-            max-width:60px;
-            width:100%;
-            text-align:center;
+            max-width: 70px;
+            width: 100%;
+            display: block;
+            margin: 0 auto; 
         }
         .school-logo {
-            width: 60px;
-            margin-top: 3px;/* 3px gap between profile picture and school logo */
-            max-width:60px;
-            width:100%;
-            text-align:center;
+            margin-top: 3px; /* 3px gap between profile picture and school logo */
+            max-width: 70px;
+            width: 100%;
+            display: block;
+            margin: 0 auto;   
         }
         .school-locations {
             font-size: 5px;
             color: #0d56a2;
             text-align: center;
-            margin-top: 3px;
-            text-align:center;
+            margin-top: 5px;
         }
         .name-linkedin {
-            display: flex;
-            align-items: center;
             font-weight: bold;
             color: #a6a6a6;
             font-size: 14px;
             margin-bottom: 1px;
-        }
-        .vertical-line-small {
-            width: 1px;
-            background-color: #a6a6a6;
-            height: 15px;
-            margin: 0 5px;
         }
         .designation {
             color: #a6a6a6;
@@ -81,7 +72,7 @@
 </head>
 <body>
     <h1>Email Signature Generator</h1>
-    <form id="signature-form" onsubmit="event.preventDefault(); uploadImageAndGenerateSignature();">
+    <form id="signature-form" onsubmit="event.preventDefault(); generateSignature();">
         <label for="name">Name:</label>
         <input type="text" id="name" placeholder="Name" required><br>
         <label for="designation">Designation:</label>
@@ -92,8 +83,8 @@
         <input type="email" id="email" placeholder="Email" required><br>
         <label for="linkedin">LinkedIn URL:</label>
         <input type="url" id="linkedin" placeholder="LinkedIn URL"><br>
-        <label for="profilePic">Upload Profile Pic:</label>
-        <input type="file" id="profilePic" accept="image/*" required><br>
+        <label for="profilePicUrl">Profile Pic URL:</label>
+        <input type="text" id="profilePicUrl" placeholder="Profile Pic URL" required><br>
         <label for="campus">Campus:</label>
         <select id="campus" required>
             <option value="Core Office">Core Office</option>
@@ -106,10 +97,9 @@
         <br>
         <button type="button" id="generate-button">Generate Signature</button>
         <button type="button" id="copy-button">Copy to Clipboard</button>
-        <button type="button" id="download-button">Copy HTML to Signature Rescue</button>
+        <button type="button" id="copy-html-button">Copy HTML to Signature Rescue</button>
     </form>
     <div id="signature-result"></div>
-    <input type="hidden" id="githubToken" value="APP_TOKEN">
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
