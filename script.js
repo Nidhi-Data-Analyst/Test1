@@ -33,7 +33,7 @@ function generateSignature() {
     let linkedinHtml = '';
     if (linkedin) {
         linkedinHtml = `
-        <div class="vertical-line-small" style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 5px;"></div>
+        <div class="vertical-line-small" style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 1px;"></div>
         <a href="${linkedin}" target="_blank">
             <img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px; height: 15px;">
         </a>
@@ -76,11 +76,11 @@ function generateSignature() {
                         </div>
                     </div>
                     <div class="social-icons" style="margin-top: 3px;">
-                        <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}facebook-icon.png?raw=true" alt="Facebook" style="width: 15px;"></a>
-                        <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram" style="width: 15px;"></a>
-                        <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 10px;"><img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube" style="width: 15px;"></a>
-                        <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 10px;"><img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px;"></a>
-                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 10px;"><img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter" style="width: 15px;"></a>
+                        <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}facebook-icon.png?raw=true" alt="Facebook" style="width: 15px;"></a>
+                        <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram" style="width: 15px;"></a>
+                        <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube" style="width: 15px;"></a>
+                        <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px;"></a>
+                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter" style="width: 15px;"></a>
                     </div>
                 </td>
             </tr>
