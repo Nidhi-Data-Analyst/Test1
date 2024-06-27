@@ -7,8 +7,32 @@ function generateSignature() {
     const profilePicUrlInput = document.getElementById('profilePicUrl').value.trim();
     const campus = document.getElementById('campus').value.trim();
 
-    if (!name || !designation || !phone || !email || !profilePicUrlInput || !campus) {
-        alert('Please fill in all mandatory fields.');
+    let errorMessage = "";
+
+    if (!name) {
+        errorMessage += "Name is required.\n";
+    }
+    if (!designation) {
+        errorMessage += "Designation is required.\n";
+    }
+    if (!phone || !/^\d+$/.test(phone)) {
+        errorMessage += "Valid phone number is required.\n";
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        errorMessage += "Valid email address is required.\n";
+    }
+    if (!profilePicUrlInput || !/^https?:\/\/[^\s$.?#].[^\s]*$/.test(profilePicUrlInput)) {
+        errorMessage += "Valid profile picture URL is required.\n";
+    }
+    if (!campus) {
+        errorMessage += "Campus is required.\n";
+    }
+    if (linkedin && !/^https?:\/\/[^\s$.?#].[^\s]*$/.test(linkedin)) {
+        errorMessage += "Valid LinkedIn URL is required.\n";
+    }
+
+    if (errorMessage) {
+        alert(errorMessage);
         return;
     }
 
