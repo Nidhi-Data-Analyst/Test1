@@ -85,15 +85,16 @@ function generateSignature() {
                 </div>
             </td>
             <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px;">
-                <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
-                    <tr>
-                        <td style="font-weight: bold; color: #a6a6a6; font-size: 14px; margin-bottom: 1px; width: 0; white-space: nowrap;">
-                            <span>${name}</span>
-                        </td>
-                        <td style="padding-left: 5px;">
-                            ${linkedinHtml}
-                        </td>
-                    </tr>
+                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 14px; color: #a6a6a6; border-collapse: collapse;">
+               <tr>
+                <td style="font-weight: bold; vertical-align: top; padding: 0;">
+                ${name}
+              </td>
+            <td style="padding-left: 5px; vertical-align: top; padding: 0;">
+                ${linkedinHtml}
+        </td>
+    </tr>
+</table>
                 </table>
                 <div style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
                 <div style="margin-top: 10px; font-size: 10px;">
