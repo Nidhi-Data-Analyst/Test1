@@ -92,9 +92,6 @@ function generateSignature() {
               </td>
             <td style="padding-left: 5px; vertical-align: top; padding: 0;">
                 ${linkedinHtml}
-        </td>
-    </tr>
-</table>
                 </table>
                 <div style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
                 <div style="margin-top: 10px; font-size: 10px;">
