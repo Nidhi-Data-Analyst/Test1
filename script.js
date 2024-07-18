@@ -43,7 +43,7 @@ function generateSignature() {
     }
     const profilePicUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[0]}`;
 
-    const githubBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Test1/blob/main/';
+    const githubBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
 
     const bolds = {
         "Noida": "normal",
@@ -59,7 +59,7 @@ function generateSignature() {
         linkedinHtml = `
         <div class="vertical-line-small" style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 1px;"></div>
         <a href="${linkedin}" target="_blank">
-            <img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px; height: 15px;">
+            <img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px; height: 15px;">
         </a>
         `;
     }
@@ -70,7 +70,7 @@ function generateSignature() {
             <tr>
                 <td style="vertical-align: top; padding-right: 10px; text-align: center;">
                     <img src="${profilePicUrl}" alt="Profile Picture" class="profile-pic" style="border-radius: 50%; max-width:70px; width:100%;">
-                    <img src="${githubBaseUrl}school-logo.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; display: block; margin-top: 3px; margin: 0 auto;">
+                    <img src="${githubBaseUrl}Rschool-logo.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; display: block; margin-top: 3px; margin: 0 auto;">
                     <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 5px; clear: both;">
                         <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                         <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
@@ -87,24 +87,24 @@ function generateSignature() {
                     <div class="designation" style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
                     <div class="contact-info" style="margin-top: 10px; font-size: 10px;">
                         <div style="margin-bottom: 2px;">
-                            <img src="${githubBaseUrl}phone-icon.png?raw=true" alt="Phone Icon" style="vertical-align: middle; margin-right: 5px;"> 
+                            <img src="${githubBaseUrl}Rphone-icon.png?raw=true" alt="Phone Icon" style="vertical-align: middle; margin-right: 5px;"> 
                             <a href="tel:${phone}" style="color: #a6a6a6; text-decoration: none;">${phone}</a>
                         </div>
                         <div style="margin-bottom: 2px;">
-                            <img src="${githubBaseUrl}email-icon.png?raw=true" alt="Email Icon" style="vertical-align: middle; margin-right: 5px;"> 
+                            <img src="${githubBaseUrl}Remail-icon.png?raw=true" alt="Email Icon" style="vertical-align: middle; margin-right: 5px;"> 
                             <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
                         </div>
                         <div style="margin-bottom: 2px;">
-                            <img src="${githubBaseUrl}website-icon.png?raw=true" alt="Web Icon" style="vertical-align: middle; margin-right: 5px;"> 
+                            <img src="${githubBaseUrl}Rwebsite-icon.png?raw=true" alt="Web Icon" style="vertical-align: middle; margin-right: 5px;"> 
                             <a href="https://shivnadarschool.edu.in/" style="color: #a6a6a6; text-decoration: none;">https://shivnadarschool.edu.in/</a>
                         </div>
                     </div>
                     <div class="social-icons" style="margin-top: 3px;">
-                        <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}facebook-icon.png?raw=true" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}instagram-icon.png?raw=true" alt="Instagram"></a>
-                        <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}youtube-icon.png?raw=true" alt="YouTube"></a>
-                        <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}linkedin-icon.png?raw=true" alt="LinkedIn"></a>
-                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}twitter-icon.png?raw=true" alt="Twitter"></a>
+                        <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rfacebook-icon.png?raw=true" alt="Facebook"></a>
+                        <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rinstagram-icon.png?raw=true" alt="Instagram"></a>
+                        <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Ryoutube-icon.png?raw=true" alt="YouTube"></a>
+                        <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn"></a>
+                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rtwitter-icon.png?raw=true" alt="Twitter"></a>
                     </div>
                 </td>
             </tr>
