@@ -69,7 +69,7 @@ function generateSignature() {
     }
 
     const signatureHtml = `
-    <div class="signature-container" style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 5px; border-radius: 5px; width: 100%; max-width: 340px;">
+    <div class="signature-container" style="font-family: Poppins, Arial, sans-serif; line-height: 1; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 5px; border-radius: 5px; width: 100%; max-width: 340px;">
         <table>
             <tr>
                 <td style="vertical-align: top; padding-right: 10px; text-align: center;">
