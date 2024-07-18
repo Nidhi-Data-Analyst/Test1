@@ -87,7 +87,7 @@ function generateSignature() {
             <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px;">
                 <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
                     <tr>
-                        <td style="font-weight: bold; color: #a6a6a6; font-size: 14px; margin-bottom: 1px; width: 0;">
+                        <td style="font-weight: bold; color: #a6a6a6; font-size: 14px; margin-bottom: 1px; width: 0; white-space: nowrap;">
                             <span>${name}</span>
                         </td>
                         <td style="padding-left: 5px;">
