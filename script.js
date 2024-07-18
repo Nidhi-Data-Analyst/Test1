@@ -76,7 +76,7 @@ function generateSignature() {
                 <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
                 <br>
                 <img src="${subdomainBaseUrl}Rschool-logo.png" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
-                <div style="font-size: 10px; color: #0d56a2; text-align: center; margin-top: 5px;">
+                <div style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 5px;">
                     <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                     <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
                     <span style="font-weight: ${bolds.Faridabad};">Faridabad</span> | 
@@ -87,7 +87,7 @@ function generateSignature() {
             <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px;">
                 <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
                     <tr>
-                        <td style="font-weight: bold; color: #a6a6a6; font-size: 14px; margin-bottom: 1px;">
+                        <td style="font-weight: bold; color: #a6a6a6; font-size: 14px; margin-bottom: 1px; width: 0;">
                             <span>${name}</span>
                         </td>
                         <td style="padding-left: 5px;">
