@@ -8,7 +8,7 @@ function generateSignature() {
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
     const linkedin = document.getElementById('linkedin').value.trim();
-    const profilePic = document.getElementById('profilePic').files[0];
+    const profilePicUrlInput = document.getElementById('profilePicUrl').value.trim();
     const campus = document.getElementById('campus').value.trim();
 
     let errorMessage = "";
@@ -25,6 +25,9 @@ function generateSignature() {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         errorMessage += "Valid email address is required.\n";
     }
+    if (!profilePicUrlInput || !/^https?:\/\/[^\s$.?#].[^\s]*$/.test(profilePicUrlInput)) {
+        errorMessage += "Valid profile picture URL is required.\n";
+    }
     if (!campus) {
         errorMessage += "Campus is required.\n";
     }
@@ -37,11 +40,14 @@ function generateSignature() {
         return;
     }
 
-       const reader = new FileReader();
-    reader.readAsDataURL(profilePic);
-    reader.onloadend = function () {
-        const profilePicUrl = reader.result;
-        const subdomainBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
+    const fileIdMatch = profilePicUrlInput.match(/[-\w]{25,}/);
+    if (!fileIdMatch) {
+        alert('Invalid Google Drive URL for profile picture.');
+        return;
+    }
+    const profilePicUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[0]}`;
+
+    const subdomainBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
 
     const bolds = {
         "Noida": "normal",
