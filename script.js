@@ -1,4 +1,8 @@
+console.log("JavaScript loaded successfully.");
+
 function generateSignature() {
+    console.log("Generating signature...");
+    
     const name = document.getElementById('name').value.trim();
     const designation = document.getElementById('designation').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -43,7 +47,7 @@ function generateSignature() {
     }
     const profilePicUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[0]}`;
 
-    const githubBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
+    const subdomainBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
 
     const bolds = {
         "Noida": "normal",
@@ -59,18 +63,18 @@ function generateSignature() {
         linkedinHtml = `
         <div class="vertical-line-small" style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 1px;"></div>
         <a href="${linkedin}" target="_blank">
-            <img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px; height: 15px;">
+            <img src="${subdomainBaseUrl}linkedin-icon.png" alt="LinkedIn" style="width: 15px; height: 15px;">
         </a>
         `;
     }
 
     const signatureHtml = `
-    <div class="signature-container" style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #ffffff; padding: 5px; border-radius: 5px; width: 100%; max-width: 340px;">
+    <div class="signature-container" style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 5px; border-radius: 5px; width: 100%; max-width: 340px;">
         <table>
             <tr>
                 <td style="vertical-align: top; padding-right: 10px; text-align: center;">
                     <img src="${profilePicUrl}" alt="Profile Picture" class="profile-pic" style="border-radius: 50%; max-width:70px; width:100%;">
-                    <img src="${githubBaseUrl}Rschool-logo.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; display: block; margin-top: 3px; margin: 0 auto;">
+                    <img src="${subdomainBaseUrl}school-logo.png" alt="School Logo" class="school-logo" style="width:100%; max-width:70px; display: block; margin-top: 3px; margin: 0 auto;">
                     <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 5px; clear: both;">
                         <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                         <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
@@ -87,24 +91,24 @@ function generateSignature() {
                     <div class="designation" style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
                     <div class="contact-info" style="margin-top: 10px; font-size: 10px;">
                         <div style="margin-bottom: 2px;">
-                            <img src="${githubBaseUrl}Rphone-icon.png?raw=true" alt="Phone Icon" style="vertical-align: middle; margin-right: 5px;"> 
+                            <img src="${subdomainBaseUrl}phone-icon.png" alt="Phone Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
                             <a href="tel:${phone}" style="color: #a6a6a6; text-decoration: none;">${phone}</a>
                         </div>
                         <div style="margin-bottom: 2px;">
-                            <img src="${githubBaseUrl}Remail-icon.png?raw=true" alt="Email Icon" style="vertical-align: middle; margin-right: 5px;"> 
+                            <img src="${subdomainBaseUrl}email-icon.png" alt="Email Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
                             <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
                         </div>
                         <div style="margin-bottom: 2px;">
-                            <img src="${githubBaseUrl}Rwebsite-icon.png?raw=true" alt="Web Icon" style="vertical-align: middle; margin-right: 5px;"> 
+                            <img src="${subdomainBaseUrl}website-icon.png" alt="Web Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
                             <a href="https://shivnadarschool.edu.in/" style="color: #a6a6a6; text-decoration: none;">https://shivnadarschool.edu.in/</a>
                         </div>
                     </div>
                     <div class="social-icons" style="margin-top: 3px;">
-                        <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rfacebook-icon.png?raw=true" alt="Facebook"></a>
-                        <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rinstagram-icon.png?raw=true" alt="Instagram"></a>
-                        <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Ryoutube-icon.png?raw=true" alt="YouTube"></a>
-                        <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn"></a>
-                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rtwitter-icon.png?raw=true" alt="Twitter"></a>
+                        <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${subdomainBaseUrl}facebook-icon.png" alt="Facebook" style="width: 15px;"></a>
+                        <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${subdomainBaseUrl}instagram-icon.png" alt="Instagram" style="width: 15px;"></a>
+                        <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${subdomainBaseUrl}youtube-icon.png" alt="YouTube" style="width: 15px;"></a>
+                        <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${subdomainBaseUrl}linkedin-icon.png" alt="LinkedIn" style="width: 15px;"></a>
+                        <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${subdomainBaseUrl}twitter-icon.png" alt="Twitter" style="width: 15px;"></a>
                     </div>
                 </td>
             </tr>
@@ -112,6 +116,7 @@ function generateSignature() {
     </div>
     `;
 
+    console.log("Generated signature HTML:", signatureHtml);
     document.getElementById('signature-result').innerHTML = signatureHtml;
 }
 
