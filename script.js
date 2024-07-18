@@ -45,7 +45,7 @@ function generateSignature() {
         alert('Invalid Google Drive URL for profile picture.');
         return;
     }
-    const profilePicUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[0]}`;
+    const profilePicUrl = https://drive.google.com/uc?export=view&id=${fileIdMatch[0]};
 
     const subdomainBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
 
@@ -60,15 +60,15 @@ function generateSignature() {
 
     let linkedinHtml = '';
     if (linkedin) {
-        linkedinHtml = `
+        linkedinHtml = 
         <div class="vertical-line-small" style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 1px;"></div>
         <a href="${linkedin}" target="_blank">
             <img src="${subdomainBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 15px; height: 15px;">
         </a>
-        `;
+        ;
     }
 
-    const signatureHtml = `
+    const signatureHtml = 
     <div class="signature-container" style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 5px; border-radius: 5px; width: 100%; max-width: 340px;">
         <table>
             <tr>
@@ -114,7 +114,7 @@ function generateSignature() {
             </tr>
         </table>
     </div>
-    `;
+    ;
 
     console.log("Generated signature HTML:", signatureHtml);
     document.getElementById('signature-result').innerHTML = signatureHtml;
