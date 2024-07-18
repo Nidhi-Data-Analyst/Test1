@@ -61,7 +61,7 @@ function generateSignature() {
     let linkedinHtml = '';
     if (linkedin) {
         linkedinHtml = `
-        <div class="vertical-line-small" style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 1px;"></div>
+        <div class="vertical-line-small" style="width: 1px; background-color: #a6a6a6; height: 15px; margin: 0 1px;"></div>
         <a href="${linkedin}" target="_blank">
             <img src="${subdomainBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 15px; height: 15px;">
         </a>
@@ -76,7 +76,7 @@ function generateSignature() {
                 <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
                 <br>
                 <img src="${subdomainBaseUrl}Rschool-logo.png" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
-                <div style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 5px;">
+                <div style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 1px;">
                     <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                     <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
                     <span style="font-weight: ${bolds.Faridabad};">Faridabad</span> | 
