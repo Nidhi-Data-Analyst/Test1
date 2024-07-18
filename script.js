@@ -73,7 +73,7 @@ function generateSignature() {
     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
         <tr>
             <td style="vertical-align: top; padding-right: 10px; text-align: center;">
-                <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; display:block;">
+                <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
                 <br>
                 <img src="${subdomainBaseUrl}Rschool-logo.png" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
                 <div style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 5px;">
