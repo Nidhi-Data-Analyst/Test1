@@ -5,11 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Email Signature Generator</title>
     <style>
-  .signature-container {
+        .signature-container {
             font-family: Poppins, Arial, sans-serif;
             line-height: 1.5;
             color: #a6a6a6;
-            border: 1px solid: #ffffff;
+            border: 1px solid #e0e0e0;
             padding: 5px;
             border-radius: 5px;
             width: 100%;
@@ -25,6 +25,7 @@
         .school-logo {
             margin-top: 3px; /* 3px gap between profile picture and school logo */
             max-width: 70px;
+            width: 100%;
             display: block;
             margin: 0 auto;   
         }
@@ -32,7 +33,7 @@
             font-size: 5px;
             color: #0d56a2;
             text-align: center;
-            margin-top: 3px;
+            margin-top: 5px;
         }
         .name-linkedin {
             font-weight: bold;
@@ -65,7 +66,31 @@
             margin-right: 5px;
         }
         .social-icons img {
-          max-width: 15px
+            width: 15px;
+        }
+        #generate-button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+        }
+        #copy-button {
+            background-color: #008CBA; /* Blue */
+            color: white;
+        }
+        #copy-html-button {
+            background-color: #f44336; /* Red */
+            color: white;
+        }
+        button {
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
         }
     </style>
 </head>
