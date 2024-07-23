@@ -47,7 +47,7 @@ function generateSignature() {
     }
     const profilePicUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[0]}`;
 
-    const subdomainBaseUrl = 'https://shivnadarschool.edu.in/sites/default/files/';
+    const subdomainBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Test1/blob/main/';
 
     const bolds = {
         "Noida": "normal",
@@ -75,7 +75,7 @@ function generateSignature() {
             <td style="vertical-align: top; padding-right: 10px; text-align: center;">
                 <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
                 <br>
-                <img src="${subdomainBaseUrl}Rschool-logo.png" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
+                <img src="${subdomainBaseUrl}school-logo-svg.svg" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
                 <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 1px;">
                     <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                     <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
