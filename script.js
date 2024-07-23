@@ -61,15 +61,15 @@ function generateSignature() {
    let linkedinHtml = '';
     if (linkedin) {
         linkedinHtml = `
-    <div style="display: inline-block; width: 1px; background-color: #a6a6a6; background-color: rgb(166, 166, 166); height: 15px; margin: 0 1px;"></div>
+    <div style="display: inline-block; width: 1px; background-color: #a6a6a6; background-color: rgb(166, 166, 166); height: 15px; margin: 1 1px;"></div>
     <a href="${linkedin}" target="_blank">
-            <img src="${subdomainBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 15px; height: 15px;">
+            <img src="${subdomainBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 10px; height: 10px;">
         </a>
         `;
     }
 
     const signatureHtml = `
-  <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6;  color: rgb(166,166,166); border: 1px solid #e0e0e0; padding: 5px; border-radius: 5px; width: 100%; max-width: 340px;">
+  <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6;  color: rgb(166,166,166); border: 1px solid #e0e0e0; padding: 0px; border-radius: 5px; width: 100%; max-width: 340px;">
     <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
         <tr>
             <td style="vertical-align: top; padding-right: 10px; text-align: center;">
