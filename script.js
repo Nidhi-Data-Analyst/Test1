@@ -2,7 +2,7 @@ console.log("JavaScript loaded successfully.");
 
 function generateSignature() {
     console.log("Generating signature...");
-    
+
     const name = document.getElementById('name').value.trim();
     const designation = document.getElementById('designation').value.trim();
     const phone = document.getElementById('phone').value.trim();
@@ -13,6 +13,7 @@ function generateSignature() {
 
     let errorMessage = "";
 
+    // Validation checks
     if (!name) {
         errorMessage += "Name is required.\n";
     }
@@ -35,11 +36,13 @@ function generateSignature() {
         errorMessage += "Valid LinkedIn URL is required.\n";
     }
 
+    // Show error message if any validation fails
     if (errorMessage) {
         alert(errorMessage);
         return;
     }
 
+    // Extract the Google Drive file ID
     const fileIdMatch = profilePicUrlInput.match(/[-\w]{25,}/);
     if (!fileIdMatch) {
         alert('Invalid Google Drive URL for profile picture.');
@@ -58,68 +61,71 @@ function generateSignature() {
     };
     bolds[campus] = "bold";
 
-   let linkedinHtml = '';
+    // LinkedIn HTML part if LinkedIn URL is provided
+    let linkedinHtml = '';
     if (linkedin) {
         linkedinHtml = `
-    <div style="display: inline-block; width: 1px; background-color: #a6a6a6; background-color: rgb(166, 166, 166); height: 15px; margin: 1 1px;"></div>
-    <a href="${linkedin}" target="_blank">
-            <img src="${githubBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 10px; height: 10px;">
-        </a>
+            <div style="display: inline-block; width: 1px; background-color: #a6a6a6; height: 15px; margin: 1 1px;"></div>
+            <a href="${linkedin}" target="_blank">
+                <img src="${githubBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 10px; height: 10px;">
+            </a>
         `;
     }
 
+    // Signature HTML
     const signatureHtml = `
-  <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6;  color: rgb(166,166,166); border: 1px solid #e0e0e0; padding: 0px; border-radius: 5px; width: 100%; max-width: 340px;">
-    <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
-        <tr>
-            <td style="vertical-align: top; padding-right: 10px; text-align: center;">
-                <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
-                <br>
-                <img src="${githubBaseUrl}school-logo-svg.svg" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
-                <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 1px;">
-                    <span style="font-weight: ${bolds.Noida};">Noida</span> | 
-                    <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
-                    <span style="font-weight: ${bolds.Faridabad};">Faridabad</span> | 
-                    <span style="font-weight: ${bolds.Delhi};">Delhi</span> | 
-                    <span style="font-weight: ${bolds.Chennai};">Chennai</span>
-                </div>
-            </td>
-            <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px;">
-                <table cellpadding="0" cellspacing="0" border="0" style="font-size: 14px; color: #a6a6a6; border-collapse: collapse;">
-               <tr>
-                <td style="font-weight: bold; vertical-align: top; padding: 0;">
-                ${name}
-              </td>
-            <td style="padding-left: 5px; vertical-align: top; padding: 0;">
-                ${linkedinHtml}
-                </table>
-                <div style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
-                <div style="margin-top: 10px; font-size: 10px;">
-                    <div style="margin-bottom: 2px;">
-                        <img src="${githubBaseUrl}Rphone-icon.png" alt="Phone Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
-                        <a href="tel:${phone}" style="color: #a6a6a6; text-decoration: none;">${phone}</a>
-                    </div>
-                    <div style="margin-bottom: 2px;">
-                        <img src="${githubBaseUrl}Remail-icon.png" alt="Email Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
-                        <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
-                    </div>
-                    <div style="margin-bottom: 2px;">
-                        <img src="${githubBaseUrl}Rwebsite-icon.png" alt="Web Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
-                        <a href="https://shivnadarschool.edu.in/" style="color: #a6a6a6; text-decoration: none;">https://shivnadarschool.edu.in/</a>
-                    </div>
-                </div>
-                <div style="margin-top: 3px;">
-                    <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rfacebook-icon.png" alt="Facebook" style="width: 15px;"></a>
-                    <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rinstagram-icon.png" alt="Instagram" style="width: 15px;"></a>
-                    <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Ryoutube-icon.png" alt="YouTube" style="width: 15px;"></a>
-                    <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 15px;"></a>
-                    <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rtwitter-icon.png" alt="Twitter" style="width: 15px;"></a>
-                </div>
-            </td>
-        </tr>
-    </table>
-</div>
-
+        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 0px; border-radius: 5px; width: 100%; max-width: 340px;">
+            <table cellpadding="0" cellspacing="0" border="0" style="width: 100%;">
+                <tr>
+                    <td style="vertical-align: top; padding-right: 10px; text-align: center;">
+                        <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
+                        <br>
+                        <img src="${githubBaseUrl}school-logo-svg.svg" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
+                        <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 1px;">
+                            <span style="font-weight: ${bolds.Noida};">Noida</span> | 
+                            <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
+                            <span style="font-weight: ${bolds.Faridabad};">Faridabad</span> | 
+                            <span style="font-weight: ${bolds.Delhi};">Delhi</span> | 
+                            <span style="font-weight: ${bolds.Chennai};">Chennai</span>
+                        </div>
+                    </td>
+                    <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px;">
+                        <table cellpadding="0" cellspacing="0" border="0" style="font-size: 14px; color: #a6a6a6; border-collapse: collapse;">
+                            <tr>
+                                <td style="font-weight: bold; vertical-align: top; padding: 0;">
+                                    ${name}
+                                </td>
+                                <td style="padding-left: 5px; vertical-align: top; padding: 0;">
+                                    ${linkedinHtml}
+                                </td>
+                            </tr>
+                        </table>
+                        <div style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
+                        <div style="margin-top: 10px; font-size: 10px;">
+                            <div style="margin-bottom: 2px;">
+                                <img src="${githubBaseUrl}Rphone-icon.png" alt="Phone Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
+                                <a href="tel:${phone}" style="color: #a6a6a6; text-decoration: none;">${phone}</a>
+                            </div>
+                            <div style="margin-bottom: 2px;">
+                                <img src="${githubBaseUrl}Remail-icon.png" alt="Email Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
+                                <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
+                            </div>
+                            <div style="margin-bottom: 2px;">
+                                <img src="${githubBaseUrl}Rwebsite-icon.png" alt="Web Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
+                                <a href="https://shivnadarschool.edu.in/" style="color: #a6a6a6; text-decoration: none;">https://shivnadarschool.edu.in/</a>
+                            </div>
+                        </div>
+                        <div style="margin-top: 3px;">
+                            <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rfacebook-icon.png" alt="Facebook" style="width: 15px;"></a>
+                            <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rinstagram-icon.png" alt="Instagram" style="width: 15px;"></a>
+                            <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Ryoutube-icon.png" alt="YouTube" style="width: 15px;"></a>
+                            <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}Rlinkedin-icon.png" alt="LinkedIn" style="width: 15px;"></a>
+                            <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rtwitter-icon.png" alt="Twitter" style="width: 15px;"></a>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
     `;
 
     console.log("Generated signature HTML:", signatureHtml);
