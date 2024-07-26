@@ -47,7 +47,7 @@ function generateSignature() {
     }
     const profilePicUrl = `https://drive.google.com/uc?export=view&id=${fileIdMatch[0]}`;
 
-    const githubBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Email-Signature/blob/main/';
+    const githubBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Test1/blob/main/';
 
     const bolds = {
         "Noida": "normal",
