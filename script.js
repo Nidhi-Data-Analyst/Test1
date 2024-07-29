@@ -49,7 +49,6 @@ function generateSignature() {
     console.log("Profile Pic URL:", profilePicUrl);  // Debugging line
 
     const githubBaseUrl = 'https://github.com/Nidhi-Data-Analyst/Test1/blob/main/';
-    const schoolLogo ='https://raw.githubusercontent.com/Nidhi-Data-Analyst/Test1/3f61538f21dc0a1d67e03087c4919aa46a88c322/school-logo-svg.svg'
 
     const bolds = {
         "Noida": "normal",
@@ -77,7 +76,7 @@ function generateSignature() {
                     <td style="vertical-align: top; padding-right: 10px; text-align: center; width: 120px">
                         <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
                         <br>
-                        <img src="${schoolLogo}" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
+                        <img src="${githubBaseUrl}school-logo.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
                         <div class="school-locations" style="font-size: 5px; color: #0d56a2; text-align: center; margin-top: 1px;">
                             <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                             <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
