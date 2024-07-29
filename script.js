@@ -63,9 +63,9 @@ function generateSignature() {
     let linkedinHtml = '';
     if (linkedin) {
         linkedinHtml = `
-            <div style="display: inline-block; width: 1px; background-color: #a6a6a6; background-color: rgb(166, 166, 166); height: 15px; margin: 1 1px;"></div>
+            <div style="display: inline-block; width: 1px; background-color: #a6a6a6; background-color: rgb(166, 166, 166); height: 10px; margin-left:3px;"></div>
             <a href="${linkedin}" target="_blank">
-                <img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" style="height: 10px;">
+                <img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn">
             </a>
         `;
     }
