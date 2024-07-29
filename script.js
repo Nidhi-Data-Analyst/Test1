@@ -71,10 +71,10 @@ function generateSignature() {
     }
 
     const signatureHtml = `
-        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 0px; border-radius: 5px; width: 380px; max-width: 380px;">
+        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 0px; border-radius: 5px; width: 340px; max-width: 340px;">
             <table cellpadding="0" cellspacing="0" border="0" style="width: 100%; table-layout: fixed;">
                 <tr>
-                    <td style="vertical-align: top; padding-right: 10px; text-align: center;">
+                    <td style="vertical-align: top; padding-right: 10px; text-align: center; width: 110px">
                         <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
                         <br>
                         <img src="${schoolLogo}" alt="School Logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
@@ -86,7 +86,7 @@ function generateSignature() {
                             <span style="font-weight: ${bolds.Chennai};">Chennai</span>
                         </div>
                     </td>
-                    <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px;">
+                    <td style="border-left: 1.5px solid #a6a6a6; padding-left: 10px; width: 230px">
                         <table cellpadding="0" cellspacing="0" border="0" style="font-size: 14px; color: #a6a6a6; border-collapse: collapse;">
                             <tr>
                                 <td style="font-weight: bold; vertical-align: top; padding: 0;">${name}</td>
