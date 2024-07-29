@@ -71,7 +71,7 @@ function generateSignature() {
     }
 
     const signatureHtml = `
-        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; border: 1px solid #e0e0e0; padding: 0px; border-radius: 5px; width: 340px; max-width: 340px;">
+        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; padding: 0px; border-radius: 5px; width: 340px; max-width: 340px; border: none;">
             <table cellpadding="0" cellspacing="0" border="0" style="width: 340px; table-layout: fixed;">
                 <tr>
                     <td style="vertical-align: top; padding-right: 10px; text-align: center; width: 110px">
