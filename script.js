@@ -65,7 +65,7 @@ function generateSignature() {
         linkedinHtml = `
             <div style="display: inline-block; width: 1px; background-color: #a6a6a6; background-color: rgb(166, 166, 166); height: 15px; margin: 1 1px;"></div>
             <a href="${linkedin}" target="_blank">
-                <img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" style="width: 10px; height: 10px;">
+                <img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" style="height: 10px;">
             </a>
         `;
     }
@@ -96,24 +96,24 @@ function generateSignature() {
                         <div style="color: #a6a6a6; font-size: 12px; margin-top: 0px;">${designation}</div>
                         <div style="margin-top: 10px; font-size: 10px;">
                             <div style="margin-bottom: 2px;">
-                                <img src="${githubBaseUrl}Rphone-icon.png?raw=true" alt="Phone Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
+                                <img src="${githubBaseUrl}Rphone-icon.png?raw=true" alt="Phone Icon" style=" vertical-align: middle; margin-right: 5px;"> 
                                 <a href="tel:${phone}" style="color: #a6a6a6; text-decoration: none;">${phone}</a>
                             </div>
                             <div style="margin-bottom: 2px;">
-                                <img src="${githubBaseUrl}Remail-icon.png?raw=true" alt="Email Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
+                                <img src="${githubBaseUrl}Remail-icon.png?raw=true" alt="Email Icon" style=" vertical-align: middle; margin-right: 5px;"> 
                                 <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
                             </div>
                             <div style="margin-bottom: 2px;">
-                                <img src="${githubBaseUrl}Rwebsite-icon.png?raw=true" alt="Web Icon" style="width: 16px; vertical-align: middle; margin-right: 5px;"> 
+                                <img src="${githubBaseUrl}Rwebsite-icon.png?raw=true" alt="Web Icon" style=" vertical-align: middle; margin-right: 5px;"> 
                                 <a href="https://shivnadarschool.edu.in/" style="color: #a6a6a6; text-decoration: none;">https://shivnadarschool.edu.in/</a>
                             </div>
                         </div>
                         <div style="margin-top: 3px;">
-                            <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rfacebook-icon.png?raw=true" alt="Facebook" style="width: 15px;"></a>
-                            <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rinstagram-icon.png?raw=true" alt="Instagram" style="width: 15px;"></a>
-                            <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Ryoutube-icon.png?raw=true" alt="YouTube" style="width: 15px;"></a>
-                            <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" style="width: 15px;"></a>
-                            <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rtwitter-icon.png?raw=true" alt="Twitter" style="width: 15px;"></a>
+                            <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rfacebook-icon.png?raw=true" alt="Facebook" ></a>
+                            <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rinstagram-icon.png?raw=true" alt="Instagram" ></a>
+                            <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Ryoutube-icon.png?raw=true" alt="YouTube" ></a>
+                            <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}Rlinkedin-icon.png?raw=true" alt="LinkedIn" ></a>
+                            <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}Rtwitter-icon.png?raw=true" alt="Twitter" ></a>
                         </div>
                     </td>
                 </tr>
