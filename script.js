@@ -74,9 +74,9 @@ function generateSignature() {
             <table cellpadding="0" cellspacing="0" border="0" style="width: 340px; table-layout: fixed;">
                 <tr>
                     <td style="vertical-align: top; padding-right: 5px; text-align: center; width: 120px">
-                        <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:70px; width:100%; text-align:center;">
+                        <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:90px; width:100%; text-align:center;">
                         <br>
-                        <img src="${githubBaseUrl}school_logo14.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:70px; display: block; margin: 3px auto 0;">
+                        <img src="${githubBaseUrl}school_logo14.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:100px; display: block; margin: 3px auto 0;">
                         <div class="school-locations" style="font-size: 7px; color: #0d56a2; text-align: center; margin-top: 3px;">
                             <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                             <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
