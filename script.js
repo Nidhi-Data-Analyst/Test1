@@ -99,7 +99,7 @@ function generateSignature() {
                                 <a href="tel:${phone}" style="color: #a6a6a6; text-decoration: none;">${phone}</a>
                             </div>
                             <div style="margin-bottom: 2px;">
-                                <img src="${githubBaseUrl}phone14.png?raw=true" alt="Email Icon" style=" vertical-align: middle; margin-right: 5px;"> 
+                                <img src="${githubBaseUrl}email14.png?raw=true" alt="Email Icon" style=" vertical-align: middle; margin-right: 5px;"> 
                                 <a href="mailto:${email}" style="color: #a6a6a6; text-decoration: none;">${email}</a>
                             </div>
                             <div style="margin-bottom: 2px;">
@@ -110,7 +110,7 @@ function generateSignature() {
                         <div style="margin-top: 3px;">
                             <a href="https://www.facebook.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}facebook14.png?raw=true" alt="Facebook" ></a>
                             <a href="https://www.instagram.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}instagram14.png?raw=true" alt="Instagram" ></a>
-                            <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}instagram14.png?raw=true" alt="YouTube" ></a>
+                            <a href="https://www.youtube.com/@shivnadarschools" style="margin-right: 5px;"><img src="${githubBaseUrl}Youtube14.png?raw=true" alt="YouTube" ></a>
                             <a href="https://www.linkedin.com/school/shiv-nadar-school/" style="margin-right: 5px;"><img src="${githubBaseUrl}linkedin14.png?raw=true" alt="LinkedIn" ></a>
                             <a href="https://www.twitter.com/shivnadarschool" style="margin-right: 5px;"><img src="${githubBaseUrl}twitter14.png?raw=true" alt="Twitter" ></a>
                         </div>
