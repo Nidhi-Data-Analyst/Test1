@@ -25,8 +25,8 @@ function generateSignature() {
     if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         errorMessage += "Valid email address is required.\n";
     }
-    if (!profilePicUrlInput || !/^https?:\/\/[^\s$.?#].[^\s]*$/.test(profilePicUrlInput)) {
-        errorMessage += "Valid profile picture URL is required.\n";
+    if (profilePicUrlInput && !/^https?:\/\/[^\s$.?#].[^\s]*$/.test(profilePicUrlInput)) {
+    errorMessage += "Valid profile picture URL is required.\n";
     }
     if (!campus) {
         errorMessage += "Campus is required.\n";
