@@ -76,7 +76,7 @@ function generateSignature() {
                     <td style="vertical-align: top; padding-right: 5px; text-align: center; width: 120px">
                         <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:80px; width:100%; text-align:center;">
                         <br>
-                        <img src="${githubBaseUrl}Rschool-logo.jpg?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:100px; display: block; margin: 3px auto 0;">
+                        <img src="${githubBaseUrl}school-logo.jpg?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:100px; display: block; margin: 3px auto 0;">
                         <div class="school-locations" style="font-size: 8px; color: #0d56a2; text-align: center; margin-top: 3px;">
                             <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                             <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
