@@ -70,10 +70,10 @@ function generateSignature() {
     }
 
     const signatureHtml = `
-        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; padding: 0px; border-radius: 5px; width: 340px; max-width: 340px; border: none;">
+        <div style="font-family: Poppins, Arial, sans-serif; line-height: 1.5; color: #a6a6a6; padding: 0px; border-radius: 5px; width: 340px; max-width: 345px; border: none;">
             <table cellpadding="0" cellspacing="0" border="0" style="width: 340px; table-layout: fixed;">
                 <tr>
-                    <td style="vertical-align: top; padding-right: 5px; text-align: center; width: 120px">
+                    <td style="vertical-align: top; padding-right: 5px; text-align: center; width: 125px">
                         <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:80px; width:100%; text-align:center;">
                         <br>
                         <img src="${githubBaseUrl}school_logo14.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:100px; display: block; margin: 3px auto 0;">
