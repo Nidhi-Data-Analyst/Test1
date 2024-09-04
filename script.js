@@ -77,7 +77,7 @@ function generateSignature() {
                         <img src="${profilePicUrl}" alt="Profile Picture" style="border-radius: 50%; max-width:80px; width:100%; text-align:center;">
                         <br>
                         <img src="${githubBaseUrl}SNS Logo RECENT.png?raw=true" alt="School Logo" class="school-logo" style="width:100%; max-width:114px; display: block; margin: 3px auto 0;">
-                        <div class="school-locations" style="font-size: 6px; color: #000000; text-align: center; margin-top: 3px;">
+                        <div class="school-locations" style="font-size: 6px; color: #000000; text-align: center; margin-top: 2px;">
                             <span style="font-weight: ${bolds.Noida};">Noida</span> | 
                             <span style="font-weight: ${bolds.Gurgaon};">Gurgaon</span> | 
                             <span style="font-weight: ${bolds.Faridabad};">Faridabad</span> | 
